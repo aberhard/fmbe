@@ -13,7 +13,6 @@ background-position:center top;
 
 
 
-
 h1{  font-family: georgia,arial, helvetica, tahoma ,verdana, sans-serif;color:#fff;
 margin-bottom:18px;letter-spacing:2px;font-size: 25px;
 border-bottom:solid 0px #746b64;
@@ -44,10 +43,6 @@ padding-bottom:4px;
 }
 
 
-
-
-
-
 #top1 {
 height:45px;
 vertical-align:middle;
@@ -63,7 +58,7 @@ text-align:left;
 padding-left:14px;
 height:250px;
 border-top:solid 0px #CFCFCF;
-background-color:#;
+background-color: transparent;
 padding-top:0px;
 }
 
@@ -77,7 +72,7 @@ border-top:solid 0px #666666;padding:0px;}
 .buleiste {vertical-align:middle;
 height:52px;
 border-bottom:solid 0px #fff;
-background-color:#;
+background-color: transparent;
 margin:0px;padding:0px;
 }
 
@@ -98,7 +93,7 @@ border-left:solid 0px #fff;border-top:solid 0px #fff;
 line-height:35px;
 height:35px;
 text-align:center;
-background-color:#;
+background-color: transparent;
 }
 
 #menua {
@@ -106,7 +101,7 @@ color:#E7FECB;
 }
 #menu2 a:hover {
 color:#fff;
-background-color:#;
+background-color: transparent;
 text-decoration:underline ;
 }
 
@@ -114,7 +109,7 @@ text-decoration:underline ;
 
 #main{  height:300px;
 background-image:url(images/bgin.jpg);background-repeat:no-repeat;
-background-position:center top; background-color:#;
+background-position:center top; background-color: transparent;
 }
 
 
@@ -123,19 +118,18 @@ background-position:center top; background-color:#;
 font-size: 15px;line-height: 19px;
 font-family: arial, helvetica, tahoma ,verdana, sans-serif;
 color:#b6b6b6;
- background-color:#;}
+ background-color: transparent;
+}
 
 
 #navbox {color:#fff;font: normal 11px/15px verdana, sans-serif; padding-left: 0px;padding-right:0px;padding-top: 0px;
-background-color:#;
+background-color: transparent;
 border-right:solid 1px #fff;
 border-left:solid 0px #fff;
 width:120px;
 vertical-align:top;
-text-align:center;}
-
-
-
+text-align:center;
+}
 
 
 #fussb {
@@ -146,7 +140,7 @@ height:120px;
 text-align:center;
 vertical-align:middle;
 padding-bottom:24px;
-background-color:#;
+background-color: transparent;
 /*background-image:url(images/fuss.jpg);*/
 background-repeat:no-repeat;
 background-position:top center;
@@ -162,7 +156,7 @@ height:92px;
 text-align:center;
 vertical-align:middle;
 font-style:italic;
-background-color:#;
+background-color: transparent;
 letter-spacing:3px;
 /*background-image:url(images/fuss2.jpg);*/
 background-repeat:repeat-y;
@@ -172,16 +166,13 @@ background-position:top center;
 
 
 
-
-
-
 /* allgemeine links im text */
 
 a:link, a:visited, a:active{ font-size: 15px;line-height: 19px;
-font-family: arial, helvetica, tahoma ,verdana, sans-serif;color:#b6b6b6;text-decoration:underline;background-color:#}
+font-family: arial, helvetica, tahoma ,verdana, sans-serif;color:#b6b6b6;text-decoration:underline;background-color: transparent;}
 
 a:hover{ color:#fff;
-background-color:#;text-decoration:none}
+background-color: transparent;text-decoration:none}
 
 /* scrolleiste internet explorer ab vers.5.5 */
 
@@ -189,3 +180,117 @@ body
 {scrollbar-arrow-color: #4a8203; scrollbar-base-color: #F5F8F3;
 scrollbar-highlight-color : #4a8203; scrollbar-shadow-color : #ffffff;
 SCROLLBAR-TRACK-COLOR: #e6e6e6;}
+
+
+/* ############################################################ */
+/* M E D I A   Q U E R I E S - RESPONSIVE-BILDSCHIRMABFRAGEN */
+/* ############################################################ */
+
+/* ==================================== ab 320 pixel ================================== */
+
+
+/* - - - - -  nur info - - - - - */
+/*  f?r die kleinste smartphone-aufl?sung von 320pixel ben?tigen wir KEINE bildschirmabragen (media queries),
+denn hierf?r gilt ja automtisch der gesamte vorstehende quelltext-code -
+weil wir das template ja 'mobile-first' angelegt haben */
+
+
+
+/* ==================================== ab 360 pixel ================================== */
+
+@media (min-width: 360px) {
+
+/* keine angabe */
+
+}
+
+
+/* ==================================== ab 480 pixel ================================== */
+
+@media (min-width: 480px) {
+
+/* keine angabe */
+
+}
+
+
+/* ==================================== ab 600 pixel ================================== */
+@media (min-width: 600px) {
+
+.content {width:90vw; }
+
+.name {
+font-size:2.4rem;
+line-height:2.4rem;
+}
+
+}
+
+
+/* ==================================== ab 640 pixel ================================== */
+@media (min-width: 640px) {
+
+#menu1  a {text-decoration: none; }
+
+.logo-2 {min-height:25rem; }
+
+}
+
+
+/* ==================================== ab 768 pixel ================================== */
+@media (min-width: 768px) {
+
+html {font-size:70%;}
+
+.content  {width:92vw; }
+
+}
+
+
+/* ==================================== ab 800 pixel ================================== */
+
+@media (min-width: 800px) {
+
+/* keine angabe */
+
+}
+
+
+/* ===================================== ab 1024 pixel ================================= */
+
+@media (min-width: 1024px) {
+
+/* keine angabe */
+
+}
+
+
+/* ===================================== ab 1100 pixel ================================= */
+
+@media (min-width: 1100px) {
+
+html { font-size:75%; }
+
+.logo-2 {min-height:30rem; }
+
+.content  {width:90vw; }
+
+}
+
+
+/* ===================================== ab 1300 pixel ================================= */
+
+@media (min-width: 1300px) {
+
+.content {width:70vw; }
+
+}
+
+
+/* ===================================== ab 1400 pixel ================================= */
+
+@media (min-width: 1400px) {
+
+html { font-size:80%; }
+
+}
