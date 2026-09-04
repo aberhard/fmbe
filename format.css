@@ -118,11 +118,11 @@ background-position:center top; background-color: transparent;
 font-size: 15px;line-height: 19px;
 font-family: arial, helvetica, tahoma ,verdana, sans-serif;
 color:#b6b6b6;
- background-color: transparent;
+background-color: transparent;
 }
 
 
-#navbox {color:#fff;font: normal 11px/15px verdana, sans-serif; padding-left: 0px;padding-right:0px;padding-top: 0px;
+#navbox {color:#fff;font: normal 11px/15px verdana, sans-serif; padding-left: 10px;padding-right:0px;padding-top: 0px;
 background-color: transparent;
 border-right:solid 1px #fff;
 border-left:solid 0px #fff;
@@ -180,6 +180,95 @@ body
 {scrollbar-arrow-color: #4a8203; scrollbar-base-color: #F5F8F3;
 scrollbar-highlight-color : #4a8203; scrollbar-shadow-color : #ffffff;
 SCROLLBAR-TRACK-COLOR: #e6e6e6;}
+
+
+
+/* Responsive Layout */
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin:10px;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+@media (max-width: 768px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  #aussen,
+  #aussen > tbody > tr > td,
+  #aussen table,
+  #main2 {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #top1,
+  #leiste {
+    width: 100% !important;
+  }
+
+  #menu2 {
+    width: 100% !important;
+    display: block;
+  }
+
+  #menu2 tbody,
+  #menu2 tr {
+    display: block;
+    width: 100%;
+  }
+
+  #menu2 td {
+    display: block;
+    width: 100% !important;
+    text-align: center;
+    padding: 8px 0;
+    border: 0;
+  }
+
+  .menutrenn {
+    display: none;
+  }
+
+  #main2 > tbody > tr > td:first-child,
+  #main2 > tbody > tr > td:nth-child(2) {
+    display: none;
+  }
+
+  #inbox {
+    width: 100% !important;
+    display: block;
+    padding: 10px
+  }
+
+  #fussb,
+  #fussb2 {
+    text-align: center;
+    line-height: 1.6;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ############################################################ */
