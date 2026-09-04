@@ -107,7 +107,7 @@ text-decoration:underline ;
 
 
 
-#main{  height:300px;
+#main{  height:500px;
 background-image:url(images/bgin.jpg);background-repeat:no-repeat;
 background-position:center top; background-color: transparent;
 }
@@ -136,15 +136,15 @@ text-align:center;
 font-family: arial, helvetica, tahoma ,verdana, sans-serif;
 font-size:14px;
  color: #f7f7f7;
-height:120px;
+height:100px;
 text-align:center;
 vertical-align:middle;
 padding-bottom:24px;
 background-color: transparent;
-/*background-image:url(images/fuss.jpg);*/
+background-image:url(images/fuss.jpg);
 background-repeat:no-repeat;
 background-position:top center;
-padding-bottom:10px;
+padding-bottom:20px;
 letter-spacing:3px;
 
 }
@@ -152,13 +152,13 @@ letter-spacing:3px;
 #fussb2 {font-family: arial,georgia,verdana, sans-serif;
 font-size:9px;
  color: #fff;
-height:92px;
+height:20px;
 text-align:center;
 vertical-align:middle;
 font-style:italic;
 background-color: transparent;
 letter-spacing:3px;
-/*background-image:url(images/fuss2.jpg);*/
+background-image:url(images/fuss2.jpg);
 background-repeat:repeat-y;
 background-position:top center;
 
@@ -257,16 +257,6 @@ table {
     line-height: 1.6;
   }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
