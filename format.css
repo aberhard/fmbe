@@ -54,8 +54,8 @@ font-size:14px;
 }
 
 #leiste {vertical-align:middle;
-text-align:left;
-padding-left:14px;
+text-align:justify;
+padding-left:20px;
 height:250px;
 border-top:solid 0px #CFCFCF;
 background-color: transparent;
@@ -65,8 +65,9 @@ padding-top:0px;
 
 #hpname {letter-spacing:2px;font-size:27px;
 font-family: georgia,"Trebuchet MS",arial, helvetica, verdana, tahoma, sans-serif; font-style:italic; color:#F4FFE1;
-font-style:italic;width:700px;padding-left:10px;padding-right:20px;
-border-top:solid 0px #666666;padding:0px;}
+font-style:italic;width:100px;padding-left:20px;padding-right:20px;
+border-top:solid 0px #666666;padding:20px;
+}
 
 
 .buleiste {vertical-align:middle;
