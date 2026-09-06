@@ -89,8 +89,50 @@
                     <td id="inbox" width="100%">
                       <h2>Body-Mass-Index</h2>
                       <br>
-             
-                        <center>
+
+                      <center>
+
+                      <div id="bmi-rechner" style="max-width: 300px; padding: 20px; border: 1px solid #ccc; font-family: Arial, sans-serif;">
+                        <h3>BMI Rechner</h3>
+                        <label>Grösse in cm:</label><br>
+                        <input type="number" id="groesse" placeholder="z. B. 175" style="width: 100%; margin-bottom: 10px;"><br>
+                        
+                        <label>Gewicht in kg:</label><br>
+                        <input type="number" id="gewicht" placeholder="z. B. 70" style="width: 100%; margin-bottom: 10px;"><br>
+                        
+                        <button onclick="berechneBMI()" style="padding: 8px 15px; background: #007BFF; color: #fff; border: none; cursor: pointer;">Berechnen</button>
+                        
+                        <p id="ergebnis" style="margin-top: 15px; font-weight: bold;"></p>
+                      </div>
+
+                      <script>
+                      function berechneBMI() {
+                        var cm = document.getElementById('groesse').value;
+                        var kg = document.getElementById('gewicht').value;
+                        
+                        if (cm > 0 && kg > 0) {
+                          var m = cm / 100;
+                          var bmi = kg / (m * m);
+                          var text = "Ihr BMI: " + bmi.toFixed(1);
+                          
+                          if (bmi < 18.5) {
+                            text += " (Untergewicht)";
+                          } else if (bmi < 25) {
+                            text += " (Normalgewicht)";
+                          } else if (bmi < 30) {
+                            text += " (Übergewicht)";
+                          } else {
+                            text += " (Starkes Übergewicht)";
+                          }
+                          
+                          document.getElementById('ergebnis').innerText = text;
+                        } else {
+                          document.getElementById('ergebnis').innerText = "Bitte gültige Werte eingeben.";
+                        }
+                      }
+                      </script>
+             <br>
+                        
                             <br>
                           <table style="color:#b6b6b6" border="1" cellpadding="5"
 
