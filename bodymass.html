@@ -92,45 +92,86 @@
 
                       <center>
 
-                      <div id="bmi-rechner" style="max-width: 300px; padding: 20px; border: 1px solid #ccc; font-family: Arial, sans-serif;">
-                        <h3>BMI Rechner</h3>
-                        <label>Grösse in cm:</label><br>
-                        <input type="number" id="groesse" placeholder="z. B. 175" style="width: 100%; margin-bottom: 10px;"><br>
-                        
-                        <label>Gewicht in kg:</label><br>
-                        <input type="number" id="gewicht" placeholder="z. B. 70" style="width: 100%; margin-bottom: 10px;"><br>
-                        
-                        <button onclick="berechneBMI()" style="padding: 8px 15px; background: #007BFF; color: #fff; border: none; cursor: pointer;">Berechnen</button>
-                        
-                        <p id="ergebnis" style="margin-top: 15px; font-weight: bold;"></p>
-                      </div>
+                      <div id="bmi-rechner-erweitert" style="max-width: 350px; padding: 20px; border: 1px solid #ccc; border-radius: 8px; font-family: Arial, sans-serif; background-color: #f9f9f9;">
+                      <h3 style="margin-top: 0;">Erweiterter BMI Rechner</h3>
+                      
+                      <label style="display:block; margin-bottom: 5px;">Geschlecht:</label>
+                      <select id="geschlecht" style="width: 100%; padding: 6px; margin-bottom: 12px;">
+                        <option value="w">Weiblich</option>
+                        <option value="m">Männlich</option>
+                      </select>
 
-                      <script>
-                      function berechneBMI() {
-                        var cm = document.getElementById('groesse').value;
-                        var kg = document.getElementById('gewicht').value;
-                        
-                        if (cm > 0 && kg > 0) {
-                          var m = cm / 100;
-                          var bmi = kg / (m * m);
-                          var text = "Ihr BMI: " + bmi.toFixed(1);
+                      <label style="display:block; margin-bottom: 5px;">Alter (in Jahren):</label>
+                      <input type="number" id="alter" placeholder="z. B. 35" style="width: 100%; padding: 6px; margin-bottom: 12px; box-sizing: border-box;">
+
+                      <label style="display:block; margin-bottom: 5px;">Grösse (in cm):</label>
+                      <input type="number" id="groesse" placeholder="z. B. 175" style="width: 100%; padding: 6px; margin-bottom: 12px; box-sizing: border-box;">
+                      
+                      <label style="display:block; margin-bottom: 5px;">Gewicht (in kg):</label>
+                      <input type="number" id="gewicht" placeholder="z. B. 70" style="width: 100%; padding: 6px; margin-bottom: 15px; box-sizing: border-box;">
+                      
+                      <button onclick="berechneErweitertenBMI()" style="width: 100%; padding: 10px; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 16px;">Berechnen</button>
+                      
+                      <p id="ergebnis" style="margin-top: 15px; font-weight: bold; line-height: 1.4; white-space: pre-line;"></p>
+                       </div>
+
+                        <script>
+                        function berechneErweitertenBMI() {
+                          var geschlecht = document.getElementById('geschlecht').value;
+                          var alter = parseInt(document.getElementById('alter').value);
+                          var cm = parseFloat(document.getElementById('groesse').value);
+                          var kg = parseFloat(document.getElementById('gewicht').value);
                           
-                          if (bmi < 18.5) {
-                            text += " (Untergewicht)";
-                          } else if (bmi < 25) {
-                            text += " (Normalgewicht)";
-                          } else if (bmi < 30) {
-                            text += " (Übergewicht)";
-                          } else {
-                            text += " (Starkes Übergewicht)";
+                          if (!alter || !cm || !kg || alter <= 0 || cm <= 0 || kg <= 0) {
+                            document.getElementById('ergebnis').innerText = "Bitte geben Sie für alle Felder gültige Werte ein.";
+                            return;
                           }
                           
-                          document.getElementById('ergebnis').innerText = text;
-                        } else {
-                          document.getElementById('ergebnis').innerText = "Bitte gültige Werte eingeben.";
+                          var m = cm / 100;
+                          var bmi = kg / (m * m);
+                          var bmiGerundet = bmi.toFixed(1);
+                          
+                          // Standard-Klassifizierung nach DGE / NRC für Erwachsene ab 19 Jahren
+                          var minNormal = 19;
+                          var maxNormal = 24;
+                          
+                          // Geschlechtsspezifische Anpassung (Männer haben oft mehr Muskelmasse)
+                          if (geschlecht === 'm') {
+                            minNormal += 1;
+                            maxNormal += 1;
+                          }
+                          
+                          // Altersspezifische Verschiebung der Grenzen (NRC-Empfehlungen)
+                          if (alter >= 25 && alter <= 34) {
+                            minNormal += 0; maxNormal += 0;
+                          } else if (alter >= 35 && alter <= 44) {
+                            minNormal += 1; maxNormal += 1;
+                          } else if (alter >= 45 && alter <= 54) {
+                            minNormal += 2; maxNormal += 2;
+                          } else if (alter >= 45 && alter <= 64) {
+                            minNormal += 3; maxNormal += 3;
+                          } else if (alter > 64) {
+                            minNormal += 4; maxNormal += 4;
+                          }
+                          
+                          var interpretation = "";
+                          if (bmi < minNormal) {
+                            interpretation = "Untergewicht";
+                          } else if (bmi <= maxNormal) {
+                            interpretation = "Normalgewicht";
+                          } else if (bmi <= maxNormal + 5) {
+                            interpretation = "Übergewicht";
+                          } else {
+                            interpretation = "Starkes Übergewicht (Adipositas)";
+                          }
+                          
+                          var ausgabe = "Ihr BMI: " + bmiGerundet + "\n";
+                          ausgabe += "Einstufung: " + interpretation + "\n";
+                          ausgabe += "(Ihr optimaler Normalgewicht-Bereich liegt bei diesem Alter bei einem BMI von " + minNormal + " bis " + maxNormal + ".)";
+                          
+                          document.getElementById('ergebnis').innerText = ausgabe;
                         }
-                      }
-                      </script>
+                        </script>
                             <br>
                             <br>
                           <table style="color:#b6b6b6" border="1" cellpadding="5"
