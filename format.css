@@ -42,7 +42,6 @@ border-bottom:solid 0px #746b64;
 padding-bottom:4px;
 }
 
-
 #top1 {
 height:45px;
 vertical-align:middle;
@@ -80,19 +79,21 @@ margin:0px;padding:0px;
 .menutrenn {
 border-bottom:solid 0px #fff;
 color:#6ABC05;
-margin:0px;padding:0px;
+margin:0rem;padding:0.5rem;
 }
 
 
-#menu2 a, #menu2 a:visited , #menu2 a:active {display: block;
+#menu2 a, #menu2 a:visited , #menu2 a:active {display: flex;
 color:#E7FECB;
 text-decoration:none ;
-font-size: 14px;
+flex-direction: row; /* Nebeneinander */
+justify-content: space-around;
+font-size: 1.5rem;
 font-family:arial, helvetica, tahoma ,verdana, sans-serif;
-padding-left: 8px; padding-right: 8px;padding-bottom: 0px; padding-top:0px;
+padding-left:0.2rem; padding-right: 0.3rem;padding-bottom: 0px; padding-top:0px;
 border-left:solid 0px #fff;border-top:solid 0px #fff;
-line-height:35px;
-height:35px;
+line-height:2.8rem;
+height:2.8rem;
 text-align:center;
 background-color: transparent;
 }
@@ -183,6 +184,43 @@ scrollbar-highlight-color : #4a8203; scrollbar-shadow-color : #ffffff;
 SCROLLBAR-TRACK-COLOR: #e6e6e6;}
 
 
+/* --- 1. DESKTOP-ANSICHT (Standard für grosse Bildschirme) --- */
+.mein-menu {
+  display: flex;
+  flex-direction: row;       /* Erzwingt die Ausrichtung nebeneinander */
+  justify-content: center; /* Schiebt das gesamte Menü nach rechts (Ändern zu 'center' für Mitte) */
+  gap: 25px;                 /* Abstand zwischen den einzelnen Menüpunkten */
+  padding: 15px 20px;
+}
+
+.mein-menu a {
+  color: white;              /* Textfarbe der Links */
+  text-decoration: none;     /* Entfernt den Unterstrich */
+  font-size: 18px;
+  font-family: sans-serif;
+  white-space: nowrap;       /* Verhindert, dass ein Wort umbricht */
+}
+
+/* Hover-Effekt (Optional: Farbe ändert sich beim Drüberfahren) */
+.mein-menu a:hover {
+  color: #00bcd4;            
+}
+
+
+/* --- 2. MOBIL-ANSICHT (Greift automatisch beim Zusammenschieben) --- */
+@media (max-width: 768px) {
+  .mein-menu {
+    flex-direction: column;  /* Schaltet auf Mobilgeräten untereinander */
+    align-items: center;     /* Zentriert die Links untereinander */
+    gap: 15px;               /* Etwas weniger Abstand auf dem Handy */
+    padding: 20px 0;
+  }
+
+  .mein-menu a {
+    width: 100%;             /* Nutzt die volle Breite für leichtere Klicks */
+    text-align: center;
+  }
+}
 
 /* Responsive Layout */
 * {
@@ -220,7 +258,7 @@ table {
 
   #menu2 {
     width: 100% !important;
-    display: block;
+    display: flex;
   }
 
   #menu2 tbody,
@@ -297,9 +335,8 @@ weil wir das template ja 'mobile-first' angelegt haben */
 /* ==================================== ab 600 pixel ================================== */
 @media (min-width: 600px) {
 
-.content {width:90vw; }
 
-.name {
+.hpname {
 font-size:2.4rem;
 line-height:2.4rem;
 }
@@ -310,9 +347,9 @@ line-height:2.4rem;
 /* ==================================== ab 640 pixel ================================== */
 @media (min-width: 640px) {
 
-#menu1  a {text-decoration: none; }
+#menu2  a {text-decoration: none; }
 
-.logo-2 {min-height:25rem; }
+
 
 }
 
@@ -322,7 +359,6 @@ line-height:2.4rem;
 
 html {font-size:70%;}
 
-.content  {width:92vw; }
 
 }
 
@@ -351,9 +387,6 @@ html {font-size:70%;}
 
 html { font-size:75%; }
 
-.logo-2 {min-height:30rem; }
-
-.content  {width:90vw; }
 
 }
 
@@ -361,8 +394,6 @@ html { font-size:75%; }
 /* ===================================== ab 1300 pixel ================================= */
 
 @media (min-width: 1300px) {
-
-.content {width:70vw; }
 
 }
 
