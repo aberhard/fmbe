@@ -167,7 +167,6 @@ background-position:top center;
 }
 
 
-
 /* allgemeine links im text */
 
 a:link, a:visited, a:active{ font-size: 15px;line-height: 19px;
@@ -175,13 +174,6 @@ font-family: arial, helvetica, tahoma ,verdana, sans-serif;color:#b6b6b6;text-de
 
 a:hover{ color:#fff;
 background-color: transparent;text-decoration:none}
-
-/* scrolleiste internet explorer ab vers.5.5 */
-
-body
-{scrollbar-arrow-color: #4a8203; scrollbar-base-color: #F5F8F3;
-scrollbar-highlight-color : #4a8203; scrollbar-shadow-color : #ffffff;
-SCROLLBAR-TRACK-COLOR: #e6e6e6;}
 
 
 /* --- 1. DESKTOP-ANSICHT (Standard für grosse Bildschirme) --- */
