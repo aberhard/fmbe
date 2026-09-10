@@ -112,25 +112,38 @@
       <!-- ende fuss-->
 
     <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBDOMFfhqSxqiFK1n-CcgIM95QxW1xyprE",
-    authDomain: "fmbe-counter.firebaseapp.com",
-    databaseURL: "https://fmbe-counter-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "fmbe-counter",
-    storageBucket: "fmbe-counter.firebasestorage.app",
-    messagingSenderId: "827919854643",
-    appId: "1:827919854643:web:4463b083af1e3261820746"
-  };
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBDOMFfhqSxqiFK1n-CcgIM95QxW1xyprE",
+          authDomain: "fmbe-counter.firebaseapp.com",
+          databaseURL: "https://fmbe-counter-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "fmbe-counter",
+          storageBucket: "fmbe-counter.firebasestorage.app",
+          messagingSenderId: "827919854643",
+          appId: "1:827919854643:web:4463b083af1e3261820746"
+        };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = firebase.database(app);
+        const visitorRef = db.ref('stats');
+
+        // Zähler erhöhen
+          visitorRef.update({
+              views: firebase.database.ServerValue.increment(1)
+          }).catch(error => console.error("Fehler:", error));
+
+          // Wert live auslesen
+          visitorRef.on('value', (snapshot) => {
+              const data = snapshot.val();
+              document.getElementById("count").innerText = (data && data.views) ? data.views : "1";
+            });
+      </script>
 
 
 
