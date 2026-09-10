@@ -111,48 +111,34 @@
       </table>
       <!-- ende fuss-->
 
-    
-       <!-- 1. Firebase-Bibliotheken sicher über das Google CDN laden -->
-        <script src="https://gstatic.com"></script>
-        <script src="https://gstatic.com"></script>
+          <script type="module">
 
-        <script>
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
+            // Import the functions you need from the SDKs you need
 
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyBDOMFfhqSxqiFK1n-CcgIM95QxW1xyprE",
-          authDomain: "fmbe-counter.firebaseapp.com",
-          databaseURL: "https://fmbe-counter-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "fmbe-counter",
-          storageBucket: "fmbe-counter.firebasestorage.app",
-          messagingSenderId: "827919854643",
-          appId: "1:827919854643:web:4463b083af1e3261820746"
-        };
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
-    // 3. Verbindung zur Datenbank herstellen
-    const app = firebase.initializeApp(firebaseConfig);
-    const db = firebase.database(app);
-    const visitorRef = db.ref('stats'); // Erstellt den Ordner 'stats'
+            // TODO: Add SDKs for Firebase products that you want to use
 
-    // 4. Zähler bei jedem Seitenaufruf um 1 erhöhen
-    visitorRef.update({
-        views: firebase.database.ServerValue.increment(1)
-    }).catch(error => console.error("Fehler beim Hochzählen:", error));
-
-    // 5. Den Wert live auslesen und im HTML anzeigen
-    visitorRef.on('value', (snapshot) => {
-        const data = snapshot.val();
-        if (data && data.views) {
-            document.getElementById("count").innerText = data.views;
-        } else {
-            document.getElementById("count").innerText = "1";
-        }
-    });
-    </script>
+            // https://firebase.google.com/docs/web/setup#available-libraries
 
 
+            // Your web app's Firebase configuration
 
+            const firebaseConfig = {
+              apiKey: "AIzaSyBDOMFfhqSxqiFK1n-CcgIM95QxW1xyprE",
+              authDomain: "fmbe-counter.firebaseapp.com",
+              databaseURL: "https://fmbe-counter-default-rtdb.europe-west1.firebasedatabase.app",
+              projectId: "fmbe-counter",
+              storageBucket: "fmbe-counter.firebasestorage.app",
+              messagingSenderId: "827919854643",
+              appId: "1:827919854643:web:4463b083af1e3261820746"
+            };
+
+
+            // Initialize Firebase
+
+            const app = initializeApp(firebaseConfig);
+
+          </script>
   </body>
 </html>
