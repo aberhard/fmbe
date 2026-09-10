@@ -110,14 +110,28 @@
         </tbody>
       </table>
       <!-- ende fuss-->
-       <!-- TEST: Sichtbarer Besucherzähler -->
-        <div style="text-align: center; margin: 20px; font-family: sans-serif; font-size: 14px; color: #555;">
-        <p>Aktuelle Gesamtbesuche (Testanzeige):</p>
-        <img src="https://glitch.me" alt="Besucherzähler">
-        </div>
-       <!-- Unsichtbarer Besucherzähler im Hintergrund -->
-      <!-- <div style="display: none !important;">
-          <img src="https://glitch.me" alt="Zähler">
-      </div> -->
+       <!-- TEST: Funktionierender Besucherzähler über JavaScript -->
+<div style="text-align: center; margin: 20px; font-family: sans-serif; font-size: 14px; color: #555;">
+    <p>Aktuelle Gesamtbesuche (Testanzeige): 
+       <span id="anzahl-besuche" style="font-weight: bold; color: #0077ff;">Lädt...</span>
+    </p>
+</div>
+
+<script>
+    // Einzigartiger Schlüssel für Ihre Domain fmbe.li
+    const url = "https://countapi.xyz";
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Schreibt die Zahl live in das obige Textfeld
+            document.getElementById("anzahl-besuche").innerText = data.value;
+        })
+        .catch(error => {
+            document.getElementById("anzahl-besuche").innerText = "Fehler beim Laden";
+            console.error("Zähler-Fehler:", error);
+        });
+</script>
+<!-- Ende Besucherzähler -->
   </body>
 </html>
