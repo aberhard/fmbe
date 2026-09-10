@@ -110,20 +110,5 @@
         </tbody>
       </table>
       <!-- ende fuss-->
-       <!-- Unsichtbarer Zähler im Hintergrund (Verbindung zum QNAP abernhard) -->
-      <script>
-          // Nutzt Ihre korrekte myQNAPcloud-Domain
-          const qnapUrl = "https://myqnapcloud.com";
-
-          fetch(qnapUrl, { method: "GET", mode: "cors" })
-              .then(response => response.json())
-              .then(data => {
-                  console.log("Erfolgreich an QNAP übermittelt. Stand:", data.value);
-              })
-              .catch(error => {
-                  // Verhindert sichtbare Fehler für normale Besucher
-                  console.warn("Zähler-Verbindung im Hintergrund blockiert oder offline.");
-              });
-      </script>
   </body>
 </html>
