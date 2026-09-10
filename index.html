@@ -110,5 +110,45 @@
         </tbody>
       </table>
       <!-- ende fuss-->
+        <!-- Firebase SDKs via CDN als Modul einbinden -->
+    <script type="module">
+        import { initializeApp } from "https://gstatic.com";
+        import { getDatabase, ref, sub, increment, update, onValue } from "https://gstatic.com";
+
+        // TODO: Ersetzen Sie diese Konfiguration mit Ihren Daten aus der Firebase Konsole!
+        const firebaseConfig = {
+            apiKey: "AIzaSyBDOMFfhqSxqiFK1n-CcgIM95QxW1xyprE",
+            authDomain: "fmbe-counter.firebaseapp.com",
+            databaseURL: "https://fmbe-counter-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "fmbe-counter",
+            storageBucket: "fmbe-counter.firebasestorage.app",
+            messagingSenderId: "827919854643",
+            appId: "1:827919854643:web:4463b083af1e3261820746"
+        };
+
+        // Firebase initialisieren
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Verweis auf den Pfad "stats/views" in der Datenbank
+        const visitorRef = ref(db, 'stats');
+
+        // 1. Zähler beim Laden der Seite um 1 erhöhen
+        update(visitorRef, {
+            views: increment(1)
+        }).catch((error) => {
+            console.error("Fehler beim Erhöhen des Zählers: ", error);
+        });
+
+        // 2. Den Wert in Echtzeit auslesen und im HTML anzeigen
+        onValue(visitorRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data && data.views) {
+                document.getElementById("count").innerText = data.views;
+            } else {
+                document.getElementById("count").innerText = "1";
+            }
+        });
+    </script>
   </body>
 </html>
