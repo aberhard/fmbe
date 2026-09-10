@@ -110,28 +110,5 @@
         </tbody>
       </table>
       <!-- ende fuss-->
-       <!-- TEST: Zuverlässiger Besucherzähler im Hintergrund -->
-      <div style="text-align: center; margin: 20px; font-family: sans-serif; font-size: 14px; color: #555;">
-          <p>Aktuelle Gesamtbesuche (Testanzeige): 
-            <span id="anzahl-besuche" style="font-weight: bold; color: #0077ff;">Lädt...</span>
-          </p>
-      </div>
-
-      <script>
-          // Nutzt den aktiven Abacus-Zählerdienst mit Ihrer Domain
-          const url = "https://jasoncameron.dev";
-
-          fetch(url)
-              .then(response => response.json())
-              .then(data => {
-                  // Zeigt den aktuellen Stand der Gesamtbesuche an
-                  document.getElementById("anzahl-besuche").innerText = data.value;
-              })
-              .catch(error => {
-                  document.getElementById("anzahl-besuche").innerText = "Fehler im System";
-                  console.error("Zähler-Fehler:", error);
-              });
-      </script>
-      <!-- Ende Besucherzähler -->
   </body>
 </html>
