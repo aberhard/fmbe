@@ -166,6 +166,44 @@ background-position:top center;
 
 }
 
+/* Dieser Container schiebt den Zähler exakt in die Mitte */
+  .counter-container {
+    display: flex;
+    justify-content: center; /* Zentriert horizontal */
+    align-items: center;     /* Zentriert vertikal (falls gewünscht) */
+    width: 100%;
+    margin: 20px 0;          /* Abstand nach oben und unten */
+  }
+.visitor-box {
+    display: inline-flex;
+    align-items: center;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+  }
+
+  .visitor-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #aaa;
+    margin-right: 10px;
+  }
+
+  .visitor-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4caf50; /* Ein schönes Grün für die Zahl */
+    background: #2a2a2a;
+    padding: 4px 12px;
+    border-radius: 15px;
+    min-width: 40px;
+    text-align: center;
+  }
 
 /* allgemeine links im text */
 

@@ -111,12 +111,12 @@
       </table>
       <!-- ende fuss-->
 
-          <script type="module">
+ <!--          <script type="module">
 
             // Import the functions you need from the SDKs you need
 
             import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-            import { getDatabase, ref, runTransaction } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+            import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
 
             // TODO: Add SDKs for Firebase products that you want to use
 
@@ -158,6 +158,28 @@
             }).catch((error) => {
               console.error("Fehler beim Zählen:", error);
             });
-          </script>
+
+            // Den Zählerstand live auslesen und im HTML anzeigen
+              onValue(counterRef, (snapshot) => {
+                const data = snapshot.val();
+                const displayElement = document.getElementById('visitor-display');
+                
+                if (data !== null) {
+                  displayElement.innerText = data;
+                } else {
+                  displayElement.innerText = "0";
+                }
+              });
+          </script> -->
+          <!-- Binden Sie die Datei genau so in Ihr HTML ein -->
+          <script type="module" src="js/counter.js"></script>
+
+          // 4. Zähler anzeigen
+          <div class="counter-container">
+              <div class="visitor-box">
+              <span class="visitor-label">Besucher gesamt:</span>
+              <span id="visitor-display" class="visitor-number">Lade...</span>
+              </div>
+          </div>
   </body>
 </html>
