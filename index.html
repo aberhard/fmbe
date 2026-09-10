@@ -110,5 +110,21 @@
         </tbody>
       </table>
       <!-- ende fuss-->
+       <!-- Unsichtbarer Zähler im Hintergrund (Verbindung zum QNAP) -->
+<script>
+    // Ersetzen Sie 'ihrname' durch Ihren echten myQNAPcloud-Namen
+    const qnapUrl = "https://abernhard.myqnapcloud.com";
+
+    fetch(qnapUrl)
+        .then(response => response.json())
+        .then(data => {
+            // Optional: Zeigt den Wert nur Ihnen in der Entwickler-Konsole (F12) an
+            console.log("Erfolgreich an QNAP übermittelt. Stand:", data.value);
+        })
+        .catch(error => {
+            // Falls das QNAP mal offline ist, läuft die Website für Besucher ohne Fehler weiter
+            console.warn("Zähler-Server antwortet nicht.");
+        });
+</script>
   </body>
 </html>
